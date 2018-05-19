@@ -5,31 +5,39 @@ var steps = [];
 function setup() 
 {
   createCanvas(350,600);
-  ball = new Ball();
-
-  genRandomSteps();
-  actionsHandler();
-
+  ball=new Ball();
+  var button=createButton("Play Again");
+  button.mouseClicked(reSketch);
 }
 
-function draw() 
+function draw()
 {
   	background(0);
-	ball.keyPressed();
-	ball.update();
+    ball.keyPressed();
+    ball.update();
     ball.show();
 
-    if(frameCount % 1==0)
+    if(frameCount % 10 ===0)//check  the below code***
   	{
   		genRandomSteps();
+
   	}
 
   	for (var i = 0; i < steps.length; i++)
   	{
   		steps[i].show();
   		steps[i].update();
+        ball.onStep(steps[i]);
   	}
-  
+
+    gameOver();
+
+}
+
+function reSketch()
+{
+
+	redraw();
 }
 
 function genRandomSteps()
@@ -77,23 +85,14 @@ function addBar()
 	steps.push(new Steps(lx,ly,false));
 }
 
-function actionsHandler()
+function gameOver()
 {
-    for (step in steps)
-    {
-		if(ball.onStep(step))
-		{
-			ball.gravity=0;
-		}
-		step.y -=1 ;
-    }
 
-    if(ball.y>HEIGHT|| ball.y <0)
+    if(ball.y>height|| ball.y <0)
 	{
 		console.log("Game over");
+		noLoop();
 	}
-
-
 }
 
 

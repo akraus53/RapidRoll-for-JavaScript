@@ -1,5 +1,5 @@
 var WIDTH=70;
-var HEIGHT=20;
+var HEIGHT=10;
 
 function Steps(x,y,bs) 
 {
@@ -8,7 +8,7 @@ function Steps(x,y,bs)
 	this.width=WIDTH;
 	this.height=HEIGHT;
 	this.isSpike=bs;
-	this.speed=2;
+	this.speed=1;
 
 	this.show = function() 
 	{
@@ -20,6 +20,7 @@ function Steps(x,y,bs)
 		{
 			fill(255,0,0);
 		}
+
 		rect(this.x,this.y,this.width,this.height);
 	};
 
@@ -29,9 +30,3 @@ function Steps(x,y,bs)
 	};
 
 }
-
-function getWidth()
-{
-	return WIDTH;
-}
-
