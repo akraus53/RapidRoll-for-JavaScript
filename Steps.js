@@ -1,32 +1,26 @@
-var WIDTH=70;
-var HEIGHT=10;
+const WIDTH = 70;
+const HEIGHT = 10;
 
-function Steps(x,y,bs) 
-{
-	this.x=x;
-	this.y=y;
-	this.width=WIDTH;
-	this.height=HEIGHT;
-	this.isSpike=bs;
-	this.speed=1;
+class Steps(x, y, bs) {
+  this.x = x;
+  this.y = y;
+  this.width = WIDTH;
+  this.height = HEIGHT;
+  this.isSpike = bs;
+  this.speed = 1;
 
-	this.show = function() 
-	{
-		if(!this.isSpike)
-		{
-			fill(255);
-		}
-		else
-		{
-			fill(255,0,0);
-		}
+  this.show = function() {
+    if (!this.isSpike) {
+      fill(255);
+    } else {
+      fill(255, 0, 0);
+    }
 
-		rect(this.x,this.y,this.width,this.height);
-	};
+    rect(this.x, this.y, this.width, this.height);
+  };
 
-	this.update = function() 
-	{
-		this.y -= this.speed;
-	};
+  this.update = function() {
+    this.y -= this.speed;
+  };
 
 }
