@@ -2,6 +2,7 @@ function Ball() {
   this.y = 200;
   this.x = 200;
   this.gravity = 1;
+  this.speed = 2;
 
   this.show = function() {
     fill(255);
@@ -10,13 +11,13 @@ function Ball() {
 
   this.left = function() {
     if (!(this.x < 0)) {
-      this.x = this.x - 1;
+      this.x = this.x - this.speed;
     }
   }
 
   this.right = function() {
     if (!(this.x > width - 10)) {
-      this.x = this.x + 1;
+      this.x = this.x + this.speed;
     }
   }
 
