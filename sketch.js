@@ -45,34 +45,28 @@ function reSketch() {
 function genRandomSteps() {
   // Generate a new Spike or Step
   if (Math.random() >= 0.5) {
+    addObject(true); // Add Spike
   } else {
-    addBar();
+    addObject(false); // Add Bar
   }
 
 }
 
-function addSipke() {
-  var ly;
+function addObject(isSpike) {
+  let leftY;
+
+  // Calculate height of new Spike
   if (steps.length === 0) {
-    ly = SPACE;
+    leftY = SPACE;
   } else {
-    ly = ((steps.length * SPACE) + SPACE);
+    leftY = ((steps.length * SPACE) + SPACE);
   }
-  var lx = int(random(width - (WIDTH * 2)));
-  steps.push(new Steps(lx, ly, true));
-}
 
-function addBar() {
-  var ly;
-  if (steps.length === 0) {
-    ly = SPACE;
-  } else {
-    ly = ((steps.length * SPACE) + SPACE);
-  }
-  var lx = int(random(width - WIDTH));
-  steps.push(new Steps(lx, ly, false));
-}
+  let leftX = random(width - (WIDTH * 2));
 
+  // Create a new Object with these attributes
+  steps.push(new Steps(leftX, leftY, isSpike));
+}
 
 function checkGameOver() {
   // If ball is outside of Window
