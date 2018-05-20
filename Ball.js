@@ -24,13 +24,14 @@ function Ball() {
     this.y += this.gravity;
   };
 
-  this.onStep = function(step) {
-
+  this.checkStep = function(step) {
+    // Check if the ball hits the step
     if (this.x <= (step.x + step.width) && this.x >= step.x && (step.y === this.y + 5)) {
+      // If it's a spike --> Game over
       if (step.isSpike) {
         console.log("Game over");
         noLoop();
-
+        // if it's a Step, all is fine
       } else {
         console.log("Score");
         ball.gravity = -1;

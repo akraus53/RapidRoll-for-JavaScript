@@ -32,20 +32,17 @@ function draw() {
   for (let i = 0; i < steps.length; i++) {
     steps[i].show();
     steps[i].update();
-    ball.onStep(steps[i]);
+    ball.checkStep(steps[i]);
   }
 
-  gameOver();
-
+  checkGameOver();
 }
 
 function reSketch() {
-
   redraw();
 }
 
 function genRandomSteps() {
-    addSipke();
   // Generate a new Spike or Step
   if (Math.random() >= 0.5) {
   } else {
@@ -76,8 +73,9 @@ function addBar() {
   steps.push(new Steps(lx, ly, false));
 }
 
-function gameOver() {
 
+function checkGameOver() {
+  // If ball is outside of Window
   if (ball.y > height || ball.y < 0) {
     console.log("Game over");
     noLoop();
