@@ -1,11 +1,11 @@
-var ball;
-var SPACE = 50;
-var steps = [];
+let ball;
+let SPACE = 50; // Spacing between Steps
+let steps = [];
 
 function setup() {
   createCanvas(350, 600);
   ball = new Ball();
-  var button = createButton("Play Again");
+  let button = createButton("Play Again");
   button.mouseClicked(reSketch);
 }
 
@@ -21,7 +21,8 @@ function draw() {
 
   }
 
-  for (var i = 0; i < steps.length; i++) {
+  // Update/Draw every Step
+  for (let i = 0; i < steps.length; i++) {
     steps[i].show();
     steps[i].update();
     ball.onStep(steps[i]);
@@ -37,10 +38,9 @@ function reSketch() {
 }
 
 function genRandomSteps() {
-
-  var random_boolean = Math.random() >= 0.5;
-  if (random_boolean) {
     addSipke();
+  // Generate a new Spike or Step
+  if (Math.random() >= 0.5) {
   } else {
     addBar();
   }
