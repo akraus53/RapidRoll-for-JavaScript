@@ -8,20 +8,17 @@ function Ball() {
     ellipse(this.x, this.y, 10, 10);
   };
 
-  this.keyPressed = function() {
-    if (keyCode === LEFT_ARROW) {
+  this.left = function() {
+    if (!(this.x < 0)) {
       this.x = this.x - 1;
-      if (this.x < 0) {
-        this.x = 0;
-      }
-    } else if (keyCode === RIGHT_ARROW) {
-      this.x = this.x + 1;
-      if (this.x > width - 10) {
-        this.x = width - 10;
-      }
-
     }
-  };
+  }
+
+  this.right = function() {
+    if (!(this.x > width - 10)) {
+      this.x = this.x + 1;
+    }
+  }
 
   this.update = function() {
     this.y += this.gravity;

@@ -11,14 +11,21 @@ function setup() {
 
 function draw() {
   background(0);
-  ball.keyPressed();
+
+  if (keyIsDown(LEFT_ARROW)) {
+    ball.left();
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    ball.right();
+  }
+
   ball.update();
   ball.show();
 
-  if (frameCount % 10 === 0) //check  the below code***
-  {
+  // Every 10 frames generate new Bar/Spike
+  if (frameCount % 10 === 0) {
     genRandomSteps();
-
   }
 
   // Update/Draw every Step
