@@ -65,7 +65,7 @@ function addObject(isSpike) {
   let leftX = random(width - (WIDTH * 2));
 
   // Create a new Object with these attributes
-  steps.push(new Steps(leftX, leftY, isSpike));
+  steps.push(new Step(leftX, leftY, isSpike));
 }
 
 function checkGameOver() {
