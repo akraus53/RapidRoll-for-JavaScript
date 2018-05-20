@@ -1,7 +1,7 @@
 const WIDTH = 70;
 const HEIGHT = 10;
 
-class Steps(x, y, bs) {
+function Steps(x, y, bs) {
   this.x = x;
   this.y = y;
   this.width = WIDTH;
