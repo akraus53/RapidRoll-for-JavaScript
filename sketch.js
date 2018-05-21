@@ -17,7 +17,7 @@ function setup()
   button.mouseClicked(reloadPage);
 
     var config = {
-        apiKey: "AIzaSyBmejIO7Oxq-4JR6Mx1vDwZzxRoNZPEWkY",
+       
         authDomain: "rapid-roll-c7e9e.firebaseapp.com",
         databaseURL: "https://rapid-roll-c7e9e.firebaseio.com",
         projectId: "rapid-roll-c7e9e",
