@@ -16,19 +16,19 @@ function setup()
   let button=createButton("Play Again");
   button.mouseClicked(reloadPage);
 
-    var config = {
-       
-        authDomain: "rapid-roll-c7e9e.firebaseapp.com",
-        databaseURL: "https://rapid-roll-c7e9e.firebaseio.com",
-        projectId: "rapid-roll-c7e9e",
-        storageBucket: "",
-        messagingSenderId: "469826688525"
-    };
-    firebase.initializeApp(config);
-    console.log(firebase);
+    // var config = {
+    //     apiKey: "AIzaSyBmejIO7Oxq-4JR6Mx1vDwZzxRoNZPEWkY",
+    //     authDomain: "rapid-roll-c7e9e.firebaseapp.com",
+    //     databaseURL: "https://rapid-roll-c7e9e.firebaseio.com",
+    //     projectId: "rapid-roll-c7e9e",
+    //     storageBucket: "",
+    //     messagingSenderId: "469826688525"
+    // };
+    // firebase.initializeApp(config);
+    // console.log(firebase);
 
-    database = firebase.database();
-    ref = database.ref('Scores');
+    // database = firebase.database();
+    // ref = database.ref('Scores');
 
 }
 
@@ -36,18 +36,20 @@ function draw()
 {
   	background(0);
 
-    if (keyIsDown(LEFT_ARROW))
-    {
-        ball.left();
-    }
+    // if (keyIsDown(LEFT_ARROW))
+    // {
+    //     ball.left();
+    // }
 
-    if (keyIsDown(RIGHT_ARROW))
-    {
-        ball.right();
-    }
+    // if (keyIsDown(RIGHT_ARROW))
+    // {
+    //     ball.right();
+    // }
 
+    
     ball.update();
     ball.show();
+    
 
     if(frameCount % 10 ===0)
   	{
@@ -59,7 +61,7 @@ function draw()
   	{
   		steps[i].show();
   		steps[i].update();
-        ball.onStep(steps[i]);
+      ball.onStep(steps[i]);
   	}
 
     checkGameOver();
@@ -69,7 +71,7 @@ function draw()
 
 function name()
 {
-    let person = prompt("Please enter your name", "");
+  let person = prompt("Please enter your name", "");
 	return person;
 
 }
@@ -81,6 +83,7 @@ function reloadPage()
 
 function genRandomSteps()
 {
+
     if (Math.random() >= 0.5)
     {
         addObject(true); // Add Spike
@@ -89,6 +92,8 @@ function genRandomSteps()
 	{
 		addObject(false); // Add Bar
     }
+
+    ball.think(steps);
 
 }
 
@@ -115,7 +120,7 @@ function checkGameOver()
 		console.log("Game over");
 		console.log(score);
 		noLoop();
-		submitData();
+		//submitData();
 	}
 }
 

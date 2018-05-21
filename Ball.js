@@ -6,6 +6,29 @@ function Ball()
     this.gravity = 1;
     this.speed=2;
 
+    this.brain=new NeuralNetwork(4,2,2);
+
+
+    this.think=function(steps)
+    {
+        let inputs=[];
+        
+        inputs[0]=this.x/width;
+        inputs[1]=steps[0].x/width;
+        inputs[2]=steps[0].y/height;
+        inputs[3]=(steps[0].width+steps[0].x)/width;
+        
+        let output=this.brain.predict(inputs);
+        if(output>0.5)
+        {
+            this.left();
+        }
+        else
+        {
+            this.right();
+        }
+    }
+
     this.show = function ()
     {
         fill(255);
@@ -43,7 +66,7 @@ function Ball()
                 console.log("Game over");
                 console.log("Your score is: "+ score);
                 noLoop();
-                submitData();
+                //submitData();
                 // if it's a Step, all is fine
             } else {
                 score++;
